@@ -1,27 +1,10 @@
-drop database if exists fansiteUser;
-create database fansiteUser;
-use fansiteUser;
-
-create table fansiteUser (
- fansiteUser_id int primary key auto_increment,
- `name` varchar(50) not null 
- );
+drop database if exists fansite_favorites;
+create database fansite_favorites;
+use fansite_favorites;
  
- create table drivers (
+ create table favorites (
  position int primary key,
- `name` varchar(50) not null,
- skill varchar(50) not null
+ picked bit
  );
- 
- create table picks (
- pick_ID int primary key auto_increment,
- fansiteUser_id int,
- position int,
- foreign key (fansiteUser_id)
-		references fansiteUser(fansiteUser_id),
-foreign key (position)
-		references drivers(position)
- );
- 
  
  
