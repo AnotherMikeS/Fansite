@@ -3,8 +3,8 @@ create database fansite_favorites;
 use fansite_favorites;
  
  create table favorites (
- position int primary key,
- picked bit
+ position int primary key not null,
+ picked bit not null
  );
  
  
