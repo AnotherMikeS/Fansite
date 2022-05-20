@@ -4,7 +4,7 @@ use fansite_favorites;
  
  create table favorites (
  position int primary key not null,
- picked bit not null
+ `name` varchar(50)
  );
  
  
