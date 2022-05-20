@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Objects;
+
 public class Favorite {
 
     private int position;
@@ -26,5 +28,16 @@ public class Favorite {
         this.name = name;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Favorite favorite = (Favorite) o;
+        return position == favorite.position && Objects.equals(name, favorite.name);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(position, name);
+    }
 }

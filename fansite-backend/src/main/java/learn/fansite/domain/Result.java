@@ -3,6 +3,7 @@ package learn.fansite.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Result<T> {
 
@@ -35,4 +36,16 @@ public class Result<T> {
         this.type = type;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Result<?> result = (Result<?>) o;
+        return Objects.equals(messages, result.messages) && type == result.type && Objects.equals(payload, result.payload);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(messages, type, payload);
+    }
 }
