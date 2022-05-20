@@ -43,7 +43,6 @@ class FavoriteControllerTest {
                 .andExpect(status().isBadRequest());
     }
 
-
     @Test
     void addShouldReturn201() throws Exception {
         Favorite favorite = new Favorite(5, "Test Name");
