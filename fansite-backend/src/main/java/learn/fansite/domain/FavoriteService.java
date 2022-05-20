@@ -52,6 +52,15 @@ public class FavoriteService {
             result.addMessage("name cannot be empty", ResultType.INVALID);
         }
 
+        List<Favorite> all = findAll();
+        for(Favorite f : all) {
+            if (f.getPosition() == favorite.getPosition()){
+                result.addMessage("position cannot be duplicate", ResultType.INVALID);
+            }
+            if (f.getName().equalsIgnoreCase(favorite.getName())){
+                result.addMessage("name cannot be duplicate", ResultType.INVALID);
+            }
+        }
         return result;
     }
 }

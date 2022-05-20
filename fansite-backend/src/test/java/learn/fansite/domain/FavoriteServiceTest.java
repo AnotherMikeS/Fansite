@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static learn.fansite.TestHelper.makeResult;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -51,10 +54,32 @@ class FavoriteServiceTest {
         assertEquals("name cannot be null", result.getMessages().get(0));
 
         //Valid position, invalid name
-        favorite = new Favorite(1, "");
+        favorite = new Favorite(10, "");
         result = service.add(favorite);
         assertEquals(ResultType.INVALID, result.getType());
         assertEquals(result.getMessages().get(0), "name cannot be empty");
+    }
+
+    @Test
+    void shouldNotAddDuplicate(){
+        Favorite existingFavorite = makeFavorite();
+        repository.add(existingFavorite);
+        List<Favorite> pls = new ArrayList<>();
+        pls.add(existingFavorite);
+
+        when(repository.findAll()).thenReturn(pls);
+
+        //Duplicate ID
+        Favorite favorite = new Favorite(37, "testName");
+        Result<Favorite> result = service.add(favorite);
+        assertEquals(ResultType.INVALID, result.getType());
+        assertEquals(result.getMessages().get(0), "position cannot be duplicate");
+
+        //Duplicate Name
+        favorite = new Favorite(10, "Steve");
+        result = service.add(favorite);
+        assertEquals(ResultType.INVALID, result.getType());
+        assertEquals(result.getMessages().get(0), "name cannot be duplicate");
     }
 
     private Favorite makeFavorite(){
