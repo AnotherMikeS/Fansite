@@ -1,8 +1,8 @@
-package controllers;
+package learn.fansite.controllers;
 
 
-import domain.Result;
-import domain.ResultType;
+import learn.fansite.domain.Result;
+import learn.fansite.domain.ResultType;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import java.time.LocalDateTime;

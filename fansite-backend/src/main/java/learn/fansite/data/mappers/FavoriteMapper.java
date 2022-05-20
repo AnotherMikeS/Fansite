@@ -1,4 +1,4 @@
-package data.mappers;
+package learn.fansite.data.mappers;
 
 import models.Favorite;
 

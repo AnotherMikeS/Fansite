@@ -1,4 +1,4 @@
-package data;
+package learn.fansite.data;
 
 import models.Favorite;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class FavoritesJdbcTemplateRepositoryTest {
 
     @Autowired
-    FavoritesJdbcTemplateRepository  repository;
+    FavoritesJdbcTemplateRepository repository;
 
     @Autowired
     KnownGoodState knownGoodState;

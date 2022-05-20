@@ -1,4 +1,4 @@
-package domain;
+package learn.fansite.domain;
 
 
 import java.util.ArrayList;

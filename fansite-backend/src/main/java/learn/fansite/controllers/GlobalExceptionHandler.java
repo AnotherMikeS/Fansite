@@ -1,4 +1,4 @@
-package controllers;
+package learn.fansite.controllers;
 
 
 import org.springframework.dao.DataAccessException;

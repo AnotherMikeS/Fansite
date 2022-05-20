@@ -1,6 +1,6 @@
-package data;
+package learn.fansite.data;
 
-import data.mappers.FavoriteMapper;
+import learn.fansite.data.mappers.FavoriteMapper;
 import models.Favorite;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -21,7 +21,7 @@ public class FavoritesJdbcTemplateRepository implements FavoritesRepository {
     }
     @Override
     public List<Favorite> findAll() {
-        final String sql = "select (position, name) from favorites;";
+        final String sql = "select position, name from favorites;";
 
         return jdbcTemplate.query(sql, new FavoriteMapper());
     }
@@ -30,19 +30,12 @@ public class FavoritesJdbcTemplateRepository implements FavoritesRepository {
     public Favorite add(Favorite favorite) {
         final String sql = "insert into favorites (position, name) values (?, ?);";
 
-        KeyHolder keyHolder = new GeneratedKeyHolder();
-        int rowsAffected = jdbcTemplate.update(connection -> {
-            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, favorite.getPosition());
-            ps.setString(2, favorite.getName());
-            return ps;
-        }, keyHolder);
+            int rowsAffected = jdbcTemplate.update(sql, favorite.getPosition(), favorite.getName());
 
         if (rowsAffected <= 0) {
             return null;
         }
 
-        favorite.setPosition(keyHolder.getKey().intValue());
         return favorite;
     }
 
