@@ -21,19 +21,20 @@ public class FavoritesJdbcTemplateRepository implements FavoritesRepository {
     }
     @Override
     public List<Favorite> findAll() {
-        final String sql = "select position from favorites;";
+        final String sql = "select (position, name) from favorites;";
 
         return jdbcTemplate.query(sql, new FavoriteMapper());
     }
 
     @Override
     public Favorite add(Favorite favorite) {
-        final String sql = "insert into favorites (position) values (?);";
+        final String sql = "insert into favorites (position, name) values (?, ?);";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int rowsAffected = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, favorite.getPosition());
+            ps.setString(2, favorite.getName());
             return ps;
         }, keyHolder);
 
