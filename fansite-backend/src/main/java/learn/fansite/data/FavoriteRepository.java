@@ -4,7 +4,7 @@ import models.Favorite;
 
 import java.util.List;
 
-public interface FavoritesRepository {
+public interface FavoriteRepository {
 
     List<Favorite> findAll();
 

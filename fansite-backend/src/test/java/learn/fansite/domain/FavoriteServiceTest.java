@@ -1,6 +1,6 @@
 package learn.fansite.domain;
 
-import learn.fansite.data.FavoritesRepository;
+import learn.fansite.data.FavoriteRepository;
 import models.Favorite;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ class FavoriteServiceTest {
     FavoriteService service;
 
     @MockBean
-    FavoritesRepository repository;
+    FavoriteRepository repository;
 
     @Test
     void shouldAdd(){

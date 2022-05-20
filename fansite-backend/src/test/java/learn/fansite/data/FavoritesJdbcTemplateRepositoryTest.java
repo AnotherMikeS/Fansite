@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class FavoritesJdbcTemplateRepositoryTest {
 
     @Autowired
-    FavoritesJdbcTemplateRepository repository;
+    FavoriteJdbcTemplateRepository repository;
 
     @Autowired
     KnownGoodState knownGoodState;

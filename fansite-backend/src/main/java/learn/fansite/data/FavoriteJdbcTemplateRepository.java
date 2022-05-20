@@ -8,11 +8,11 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class FavoritesJdbcTemplateRepository implements FavoritesRepository {
+public class FavoriteJdbcTemplateRepository implements FavoriteRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
-    public FavoritesJdbcTemplateRepository(JdbcTemplate jdbcTemplate){
+    public FavoriteJdbcTemplateRepository(JdbcTemplate jdbcTemplate){
         this.jdbcTemplate = jdbcTemplate;
     }
     @Override

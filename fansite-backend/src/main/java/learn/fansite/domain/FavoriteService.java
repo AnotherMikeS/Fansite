@@ -1,6 +1,6 @@
 package learn.fansite.domain;
 
-import learn.fansite.data.FavoritesRepository;
+import learn.fansite.data.FavoriteRepository;
 import models.Favorite;
 import org.springframework.stereotype.Service;
 
@@ -9,9 +9,9 @@ import java.util.List;
 @Service
 public class FavoriteService {
 
-    private final FavoritesRepository repository;
+    private final FavoriteRepository repository;
 
-    public FavoriteService(FavoritesRepository repository) {
+    public FavoriteService(FavoriteRepository repository) {
         this.repository = repository;
     }
 
