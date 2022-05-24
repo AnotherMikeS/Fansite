@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import favoritesGif from "./MK8-Line-Mario-Trophy.gif";
 
 function Favorites(){
     const [favorites, setFavorites] = useState([]);
@@ -31,6 +32,9 @@ function Favorites(){
 
     return (
         <div>
+            <div>
+            <img src={favoritesGif} style={{width:2000, height:300, marginLeft: 50}} />
+            </div>            
             <table>
                 <thead>
                     <tr>
@@ -46,7 +50,7 @@ function Favorites(){
                                 <tr key={favorite.position}>
                                     <td>{favorite.position}</td>
                                     <td>{favorite.name}</td>
-                                    <td><button className="btn" onClick={(e) => RemoveFromFavorites(favorite)}>Remove</button></td>
+                                    <td><button className="btn btn-danger" onClick={(e) => RemoveFromFavorites(favorite)}>Remove</button></td>
                                 </tr>
                             );
                         })

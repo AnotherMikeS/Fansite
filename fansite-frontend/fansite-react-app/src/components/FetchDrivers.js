@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import marioGif from "./mario-kart.gif";
+
 
 function FetchDrivers() {
     const [drivers, setDrivers] = useState([]);
@@ -17,7 +19,7 @@ function FetchDrivers() {
 
     useEffect(() => {
         // Make a get all request
-        fetch("https://mario-kart-tour-api.herokuapp.com/api/v1/drivers/normal")
+        fetch("https://mario-kart-tour-api.herokuapp.com/api/v1/drivers")
             .then(resp => resp.json())
             .then(data => {
                 setDrivers(data);
@@ -71,6 +73,9 @@ function FetchDrivers() {
 
     return (
         <div>
+            <div>
+            <img src={marioGif} style={{width:1500, height:400, marginLeft: 300}} />
+            </div>            
             <table>
                 <thead>
                     <tr>
@@ -80,7 +85,7 @@ function FetchDrivers() {
                         <th>Actions: </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody >
                     {
                         drivers.map(driver => {
                             return (
@@ -88,8 +93,8 @@ function FetchDrivers() {
                                     <td>{driver.position}</td>
                                     <td>{driver.name}</td>
                                     <td>{driver.special_skill}</td>
-                                    <td>{favorites.find(f => f.position === driver.position) ? <button className="btn btn-outline-warning" onClick={(e) => RemoveFromFavorites(driver)}>Dislike</button>
-                                        : <button className="btn btn-outline-warning" onClick={(e) => AddToFavorites(driver)}>Like</button>}</td>
+                                    <td>{favorites.find(f => f.position === driver.position) ? <button className="btn btn-danger" onClick={(e) => RemoveFromFavorites(driver)}>Dislike</button>
+                                        : <button className="btn btn-success" onClick={(e) => AddToFavorites(driver)}>Like</button>}</td>
                                 </tr>
                             );
                         })

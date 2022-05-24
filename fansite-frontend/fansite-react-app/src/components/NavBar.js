@@ -3,17 +3,15 @@ import { Link } from "react-router-dom";
 function NavBar() {
   return (
     <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/favorites">Favorites</Link>
-        </li>
-      </ul>
+      <table>
+        <tbody>
+          <tr>
+            <Link to="/"><button className="btn btn-success">Home</button></Link>
+            <Link to="/about"><button className="btn btn-success">About</button></Link>
+            <Link to="/favorites"><button className="btn btn-success">Favorites</button></Link>          
+          </tr>
+        </tbody>
+      </table>
     </nav>
   );
 }

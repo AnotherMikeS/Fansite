@@ -1,0 +1,18 @@
+table, head, tr, tbody {
+    text-align: center;
+    border-color: red;
+    background-color: red;
+    
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: green;
+}
+
+button {
+    margin: 10px;
+}

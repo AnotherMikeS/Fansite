@@ -4,6 +4,10 @@ import NotFound from "./components/NotFound";
 import NavBar from "./components/NavBar";
 import Favorites from "./components/Favorites";
 import About from "./components/About";
+import './FetchDrivers.css';
+import './About.css';
+import './NavBar.css';
+
 
 function App() {
   return (
