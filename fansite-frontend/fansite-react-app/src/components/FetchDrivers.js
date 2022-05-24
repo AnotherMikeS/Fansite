@@ -33,7 +33,7 @@ function FetchDrivers() {
                     if (response.status === 204) { // status NO_CONTENT
                         fetchFavorites();
                     } else {
-                        return Promise.reject("DELETE todos status was not 204.");
+                        return Promise.reject("DELETE favorite status was not 204.");
                     }
 
                 })
@@ -88,8 +88,8 @@ function FetchDrivers() {
                                     <td>{driver.position}</td>
                                     <td>{driver.name}</td>
                                     <td>{driver.special_skill}</td>
-                                    <td>{favorites.find(f => f.position === driver.position) ? <button className="btn" onClick={(e) => RemoveFromFavorites(driver)}>Dislike</button>
-                                        : <button className="btn" onClick={(e) => AddToFavorites(driver)}>Like</button>}</td>
+                                    <td>{favorites.find(f => f.position === driver.position) ? <button className="btn btn-outline-warning" onClick={(e) => RemoveFromFavorites(driver)}>Dislike</button>
+                                        : <button className="btn btn-outline-warning" onClick={(e) => AddToFavorites(driver)}>Like</button>}</td>
                                 </tr>
                             );
                         })
